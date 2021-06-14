@@ -52,7 +52,7 @@ const task = client.createTask("tasks.preprocess_facebook");
     const scrollDelay = 100 // default
     await page.setDefaultNavigationTimeout(1000000);
     await page.setViewport({ width: 1000, height: 600 });
-
+    await page.setUserAgent("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36");
     // Login
     await page.goto('https://www.facebook.com', {waitUntil: 'networkidle2'});
     await page.waitForSelector(selectors.email_input);
