@@ -40,7 +40,7 @@ const task = client.createTask("tasks.preprocess_facebook");
 
     // Define puppeteer config
     const browser = await puppeteer.launch({
-      headless: false, //default is false
+      headless: true, //default is false
       args: ['--lang=en-UK,en'],
       slowMo: 30
     });
