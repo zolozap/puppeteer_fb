@@ -1,0 +1,23 @@
+{
+  "name": "puppeteer_fb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "Natapong Sripeung",
+  "license": "ISC",
+  "dependencies": {
+    "celery-node": "^0.5.5",
+    "date-fns": "^2.22.1",
+    "dotenv": "^10.0.0",
+    "moment": "^2.29.1",
+    "mongoose": "^5.12.13",
+    "nodemon": "^2.0.7",
+    "puppeteer": "^10.0.0",
+    "puppeteer-autoscroll-down": "^0.1.7"
+  }
+}
