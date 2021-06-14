@@ -35,7 +35,7 @@ const task = client.createTask("tasks.preprocess_facebook");
     // Get targets from database
     const tglists = await TargetList.find()
     let targetss = []
-    tglists.forEach(item => targetss.push(item.email)) //Change to UID
+    tglists.forEach(item => targetss.push(item.uid)) //Change to UID
     console.log(targetss);
 
     // Define puppeteer config
