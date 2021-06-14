@@ -212,11 +212,11 @@ const task = client.createTask("tasks.preprocess_facebook");
         }
         console.log("uids for process:",preprocess_uids);
         // Get list uids send to celery process task
-        const result = task.applyAsync(queue='preprocess_test', kwargs={'uid': preprocess_uids});
-        result.get().then(data => {
-          console.log(`Data schedules: ${data}`);
-          client.disconnect();
-        });
+        // const result = task.applyAsync(queue='preprocess_test', kwargs={'uid': preprocess_uids});
+        // result.get().then(data => {
+        //   console.log(`Data schedules: ${data}`);
+        //   client.disconnect();
+        // });
         
     }
     
