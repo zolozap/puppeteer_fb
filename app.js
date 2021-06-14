@@ -54,7 +54,7 @@ const task = client.createTask("tasks.preprocess_facebook");
     await page.setViewport({ width: 1000, height: 600 });
 
     // Login
-    await page.goto('https://www.facebook.com');
+    await page.goto('https://www.facebook.com', {waitUntil: 'networkidle2'});
     await page.waitForSelector(selectors.email_input);
     await page.type(selectors.email_input, process.env.FB_EMAIL);
     await page.type(selectors.password_input, process.env.FB_PASSWORD);
@@ -67,7 +67,7 @@ const task = client.createTask("tasks.preprocess_facebook");
     
     for(var target of targets){
         console.log(`Start scrape ${target}`);
-        await page.goto(`https://m.facebook.com/${target}/posts/`);
+        await page.goto(`https://m.facebook.com/${target}/posts/`, {waitUntil: 'networkidle2'});
         await page.waitFor(3000)
         
         // Add scroll more if wants more post
