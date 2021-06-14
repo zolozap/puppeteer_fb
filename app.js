@@ -33,7 +33,7 @@ const task = client.createTask("tasks.preprocess_facebook");
 (async () => {
   try {
     // Get targets from database
-    const tglists = await TargetList.find({source: 'facebook'})
+    const tglists = await TargetList.find()
     let targetss = []
     tglists.forEach(item => targetss.push(item.uid)) //Change to UID
     console.log(targetss);
