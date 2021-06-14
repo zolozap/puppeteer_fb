@@ -46,15 +46,17 @@ const task = client.createTask("tasks.preprocess_facebook");
       args: ['--lang=en-UK,en','--no-sandbox'],
       slowMo: 30
     });
-    console.log(await browser.userAgent());
+    
     const page = await browser.newPage();
     const scrollStep = 500 // default
     const scrollDelay = 100 // default
     await page.setDefaultNavigationTimeout(1000000);
     await page.setViewport({ width: 1000, height: 600 });
     await page.setUserAgent("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/44.0.2403.157 Safari/537.36");
+    console.log(await browser.userAgent());
+
     // Login
-    await page.goto('https://www.facebook.com', {waitUntil: 'networkidle2'});
+    await page.goto('https://www.facebook.com');
     await page.waitForSelector(selectors.email_input);
     await page.type(selectors.email_input, process.env.FB_EMAIL);
     await page.type(selectors.password_input, process.env.FB_PASSWORD);
@@ -67,7 +69,7 @@ const task = client.createTask("tasks.preprocess_facebook");
     
     for(var target of targets){
         console.log(`Start scrape ${target}`);
-        await page.goto(`https://m.facebook.com/${target}/posts/`, {waitUntil: 'networkidle2'});
+        await page.goto(`https://m.facebook.com/${target}/posts/`);
         await page.waitFor(3000)
         
         // Add scroll more if wants more post
