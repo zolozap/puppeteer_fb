@@ -41,7 +41,7 @@ const task = client.createTask("tasks.preprocess_facebook");
     // Define puppeteer config
     const browser = await puppeteer.launch({
       headless: true, //default is false
-      args: ['--lang=en-UK,en'],
+      args: ['--lang=en-UK,en','--no-sandbox'],
       slowMo: 30
     });
     const page = await browser.newPage();
