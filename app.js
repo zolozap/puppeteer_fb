@@ -59,10 +59,13 @@ const task = client.createTask("tasks.preprocess_facebook");
     await page.type(selectors.password_input, process.env.FB_PASSWORD);
     await page.click(selectors.login_submit);
     await page.waitFor(5000)
+    console.log('Sign in to facebook.');
 
     // Loop scrape post in target list
     var targets = ['superLungtoo','MoveForwardPartyThailand']
+    
     for(var target of targets){
+        console.log(`Start scrape ${target}`);
         await page.goto(`https://m.facebook.com/${target}/posts/`);
         await page.waitFor(3000)
         
