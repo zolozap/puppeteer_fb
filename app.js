@@ -46,6 +46,7 @@ const task = client.createTask("tasks.preprocess_facebook");
       args: ['--lang=en-UK,en','--no-sandbox'],
       slowMo: 30
     });
+    console.log(await browser.userAgent());
     const page = await browser.newPage();
     const scrollStep = 500 // default
     const scrollDelay = 100 // default
