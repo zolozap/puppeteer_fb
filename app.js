@@ -8,7 +8,6 @@ const rawFacebook = require('./models/rawfacebook')
 const selectors = require('./selectors');
 const moment = require('moment');
 
-// import { compareAsc, format } from 'date-fns'
 
 mongoose.connect(process.env.MONGOCLIENT_CONNECT, { 
     useNewUrlParser: true, 
@@ -33,10 +32,13 @@ const task = client.createTask("tasks.preprocess_facebook");
 (async () => {
   try {
     // Get targets from database
+    const tglists_count = await TargetList.count({source: 'facebook'}, function( err, count){
+      console.log(`Target count ${tglists_count}`)
+    })
     const tglists = await TargetList.find()
     let targetss = []
     tglists.forEach(item => targetss.push(item.uid)) //Change to UID
-    console.log(targetss);
+    console.log(`Target: ${targetss}`);
 
     // Define puppeteer config
     const browser = await puppeteer.launch({
