@@ -32,13 +32,21 @@ const task = client.createTask("tasks.preprocess_facebook");
 (async () => {
   try {
     // Get targets from database
-    await TargetList.count({source: 'facebook'}, function( err, count){
-      console.log(`Target count ${count}`)
+    await TargetList.countDocuments({source: 'facebook'}, function( err, count){
+      if(err){
+        console.log(error.message);
+      }else{
+        console.log(`Target count ${count}`)
+      }
     })
     let targetss = []
     await TargetList.find({}, function (err, docs) {
-      targetss.push(docs.uid)
-      console.log(`Target: ${docs}`);
+      if(err){
+        console.log(error.message);
+      }else{
+        targetss.push(docs.uid)
+        console.log(`Target: ${docs}`);
+      }
     })
 
     // Define puppeteer config
