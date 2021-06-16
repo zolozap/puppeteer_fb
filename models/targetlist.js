@@ -1,12 +1,5 @@
-require('dotenv').config()
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
-
-const conn = mongoose.createConnection(process.env.MONGOCLIENT_CONNECT, { 
-    dbName: 'aion',
-    useNewUrlParser: true, 
-    useUnifiedTopology: true
-}).catch(error => handleError(error));
 
 const target_listSchema = new Schema({
     link_crawl: String,
@@ -23,8 +16,8 @@ const target_listSchema = new Schema({
     crawling:Boolean,
     email: String,
     telnumber: String
-})
+},{strict:false})
 
-const TargetListModel = conn.model('target_list',target_listSchema)
+const TargetListModel = mongoose.model('target_list',target_listSchema)
 
 module.exports = TargetListModel
