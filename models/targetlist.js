@@ -2,7 +2,7 @@ require('dotenv').config()
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-const aion = mongoose.createConnection(process.env.MONGOCLIENT_CONNECT.concat(target_list));
+const aion = mongoose.createConnection(process.env.MONGOCLIENT_CONNECT.concat('target_list'));
 
 // const target_listSchema = new Schema({
 //     _id: mongoose.ObjectId,
