@@ -6,7 +6,7 @@ mongoose.connect(process.env.MONGOCLIENT_CONNECT, {
     dbName: 'aion',
     useNewUrlParser: true, 
     useUnifiedTopology: true
-})
+}).catch(error => handleError(error));
 
 const target_listSchema = new Schema({
     link_crawl: String,

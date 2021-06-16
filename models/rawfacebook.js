@@ -6,7 +6,7 @@ mongoose.connect(process.env.MONGOCLIENT_CONNECT, {
     dbName: 'aion',
     useNewUrlParser: true, 
     useUnifiedTopology: true
-})
+}).catch(error => handleError(error));
 
 const facebookSchema = new Schema({
     id: String,
