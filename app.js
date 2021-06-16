@@ -45,7 +45,7 @@ const task = client.createTask("tasks.preprocess_facebook");
         console.log(error.message);
       }else{
         targetss.push(docs.uid)
-        console.log(`Target: ${docs}`);
+        // console.log(`Target: ${docs}`);
       }
     })
 

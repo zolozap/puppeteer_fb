@@ -19,6 +19,6 @@ const facebookSchema = new Schema({
     timestamp_transaction: { type: Date, default: Date.now }
 },{strict:false})  
 
-const rawFacebookModel = mongoose.model('facebook',facebookSchema)
+const rawFacebookModel = mongoose.model('facebook',facebookSchema,'facebook')
 
 module.exports = rawFacebookModel
