@@ -72,7 +72,7 @@ const task = client.createTask("tasks.preprocess_facebook");
     await page.type(selectors.password_input, process.env.FB_PASSWORD);
     await page.click(selectors.login_submit);
     await page.waitFor(5000)
-    console.log('Sign in to facebook.');
+    console.log('Sign in to facebook.\n');
 
     // Loop scrape post in target list
     var targets = ['superLungtoo','MoveForwardPartyThailand']
@@ -104,11 +104,12 @@ const task = client.createTask("tasks.preprocess_facebook");
           return list_of_post
         },selectors)
 
-        console.log(`Total ${posts_elems.length} posts`);
+        console.log(`Total ${posts_elems.length} posts\n`);
 
         var postArray = []
         for(post_link of posts_elems){
           await page.goto(`https://m.facebook.com${post_link}`)
+          await page.waitForFunction('document.querySelector("body")')
           await page.waitFor(3000)
           await scrollPage(page, scrollStep, scrollDelay);
           await scrollPage(page, scrollStep, scrollDelay);
@@ -221,7 +222,7 @@ const task = client.createTask("tasks.preprocess_facebook");
           console.log("in update loop:",post_obj.postid, post_obj);
           await rawFacebook.findOneAndUpdate({postid: post_obj.postid}, post_obj, { new: true, upsert: true }, (error, doc) => {
             if(error){console.error('doc error:',error);}
-            console.log(`doc : ${doc}`);
+            console.log(`doc : ${doc}\n`);
             preprocess_uids.push(doc.postid)
           });
           
