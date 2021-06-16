@@ -10,6 +10,7 @@ const moment = require('moment');
 
 
 mongoose.connect(process.env.MONGOCLIENT_CONNECT, { 
+    dbName: 'aion',
     useNewUrlParser: true, 
     useUnifiedTopology: true
 })
