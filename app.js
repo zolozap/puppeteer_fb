@@ -243,4 +243,5 @@ const task = client.createTask("tasks.preprocess_facebook");
   } catch (error) {
     console.error(error);
   }
+  await browser.close();
 })();
