@@ -1,5 +1,8 @@
+require('dotenv').config()
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+
+const aion = mongoose.createConnection(process.env.MONGOCLIENT_CONNECT.concat('aion'));
 
 const facebookSchema = new Schema({
     id: String,
@@ -19,6 +22,6 @@ const facebookSchema = new Schema({
     timestamp_transaction: { type: Date, default: Date.now }
 },{strict:false})  
 
-const rawFacebookModel = mongoose.model('facebook',facebookSchema)
+const rawFacebookModel = aion.model('facebook',facebookSchema)
 
 module.exports = rawFacebookModel
