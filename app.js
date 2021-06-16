@@ -80,6 +80,7 @@ const task = client.createTask("tasks.preprocess_facebook");
     for(var target of targets){
         console.log(`Start scrape : ${target}\n`);
         await page.goto(`https://m.facebook.com/${target}/posts/`);
+        await page.waitForFunction('document.querySelector("body")');
         await page.waitFor(3000)
         
         // Add scroll more if wants more post
