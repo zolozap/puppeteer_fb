@@ -18,6 +18,6 @@ const target_listSchema = new Schema({
     telnumber: String
 },{strict:false})
 
-const TargetListModel = mongoose.model('target_list',target_listSchema)
+const TargetListModel = mongoose.model('target_list',target_listSchema,'target_list')
 
 module.exports = TargetListModel
