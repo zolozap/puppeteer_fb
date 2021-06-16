@@ -40,7 +40,7 @@ const task = client.createTask("tasks.preprocess_facebook");
       }
     })
     let targetss = []
-    await TargetList.find({}, function (err, docs) {
+    await TargetList.find({source: 'facebook'}, function (err, docs) {
       if(err){
         console.log(error.message);
       }else{
