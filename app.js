@@ -66,6 +66,7 @@ const task = client.createTask("tasks.preprocess_facebook");
 
     // Login
     await page.goto('https://www.facebook.com');
+    await page.waitForFunction('document.querySelector("body")');
     await page.waitForSelector(selectors.email_input);
     await page.type(selectors.email_input, process.env.FB_EMAIL);
     await page.type(selectors.password_input, process.env.FB_PASSWORD);
