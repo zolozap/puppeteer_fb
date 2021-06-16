@@ -2,7 +2,7 @@ require('dotenv').config()
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-mongoose.connect(process.env.MONGOCLIENT_CONNECT, { 
+const conn = mongoose.createConnection(process.env.MONGOCLIENT_CONNECT, { 
     dbName: 'aion',
     useNewUrlParser: true, 
     useUnifiedTopology: true
@@ -26,6 +26,6 @@ const facebookSchema = new Schema({
     timestamp_transaction: { type: Date, default: Date.now }
 },{strict:false})  
 
-const rawFacebookModel = mongoose.model('facebook',facebookSchema)
+const rawFacebookModel = conn.model('facebook',facebookSchema)
 
 module.exports = rawFacebookModel
