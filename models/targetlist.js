@@ -2,7 +2,7 @@ require('dotenv').config()
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
-var db = mongoose.connect(process.env.MONGOCLIENT_CONNECT, { 
+mongoose.connect(process.env.MONGOCLIENT_CONNECT, { 
     dbName: 'aion',
     useNewUrlParser: true, 
     useUnifiedTopology: true
@@ -26,6 +26,6 @@ const target_listSchema = new Schema({
     telnumber: String
 })
 
-const TargetListModel = db.model('target_list', target_listSchema)
+const TargetListModel = mongoose.model('target_list', target_listSchema)
 
 module.exports = TargetListModel
