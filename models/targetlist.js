@@ -9,7 +9,6 @@ mongoose.connect(process.env.MONGOCLIENT_CONNECT, {
 })
 
 const target_listSchema = new Schema({
-    _id: mongoose.ObjectId,
     link_crawl: String,
     crawled: Boolean,
     insert_timestamp: Date,
@@ -26,6 +25,6 @@ const target_listSchema = new Schema({
     telnumber: String
 })
 
-const TargetListModel = mongoose.model('target_list')
+const TargetListModel = mongoose.model('target_list',target_listSchema)
 
 module.exports = TargetListModel
