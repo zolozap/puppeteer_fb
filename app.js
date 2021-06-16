@@ -1,24 +1,24 @@
 require('dotenv').config()
 const puppeteer = require('puppeteer');  
 const scrollPage = require('puppeteer-autoscroll-down');
-const mongoose = require('mongoose')
+// const mongoose = require('mongoose')
 const celery = require('celery-node');
 const TargetList = require('./models/targetlist')
 const rawFacebook = require('./models/rawfacebook')
 const selectors = require('./selectors');
 
 
-mongoose.connect(process.env.MONGOCLIENT_CONNECT, { 
-    dbName: 'aion',
-    useNewUrlParser: true, 
-    useUnifiedTopology: true
-})
+// mongoose.connect(process.env.MONGOCLIENT_CONNECT, { 
+//     dbName: 'aion',
+//     useNewUrlParser: true, 
+//     useUnifiedTopology: true
+// })
 
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log('DB connected!');
-});
+// const db = mongoose.connection;
+// db.on('error', console.error.bind(console, 'connection error:'));
+// db.once('open', function() {
+//   console.log('DB connected!');
+// });
 
 // Celery
 const client = celery.createClient(
