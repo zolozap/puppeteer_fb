@@ -32,7 +32,7 @@ const task = client.createTask("tasks.preprocess_facebook");
 (async () => {
   try {
     // Get targets from database
-    await TargetList.countDocuments({source: 'facebook'}, function( err, count){
+    await TargetList.count({source: 'facebook'}, function( err, count){
       console.log(`Target count ${count}`)
     })
     let targetss = []
