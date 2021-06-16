@@ -35,10 +35,13 @@ const task = client.createTask("tasks.preprocess_facebook");
     await TargetList.countDocuments({source: 'facebook'}, function( err, count){
       console.log(`Target count ${count}`)
     })
-    const tglists = await TargetList.find()
     let targetss = []
-    tglists.forEach(item => targetss.push(item.uid)) //Change to UID
-    console.log(`Target: ${targetss}`);
+    const tglists = await TargetList.find({}, function (err, docs) {
+      console.log(`Target: ${docs}`);
+    })
+    
+    // tglists.forEach(item => targetss.push(item.uid)) //Change to UID
+    // console.log(`Target: ${targetss}`);
 
     // Define puppeteer config
     const browser = await puppeteer.launch({
