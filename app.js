@@ -78,7 +78,7 @@ const task = client.createTask("tasks.preprocess_facebook");
     var targets = ['superLungtoo','MoveForwardPartyThailand']
     
     for(var target of targets){
-        console.log(`Start scrape ${target}`);
+        console.log(`Start scrape : ${target}\n`);
         await page.goto(`https://m.facebook.com/${target}/posts/`);
         await page.waitFor(3000)
         
