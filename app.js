@@ -17,7 +17,7 @@ mongoose.connect(process.env.MONGOCLIENT_CONNECT, {
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
-  console.log('DB connected!', db.name);
+  console.log(`DB connected to ${db.name}`);
 });
 
 // Celery
