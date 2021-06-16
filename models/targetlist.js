@@ -1,6 +1,12 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+const db = mongoose.connect(process.env.MONGOCLIENT_CONNECT, { 
+    dbName: 'aion',
+    useNewUrlParser: true, 
+    useUnifiedTopology: true
+})
+
 const target_listSchema = new Schema({
     _id: mongoose.ObjectId,
     link_crawl: String,
@@ -19,6 +25,6 @@ const target_listSchema = new Schema({
     telnumber: String
 })
 
-const TargetListModel = mongoose.model('target_list', target_listSchema)
+const TargetListModel = db.model('target_list', target_listSchema)
 
 module.exports = TargetListModel

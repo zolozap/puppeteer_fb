@@ -1,6 +1,12 @@
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
+const db = mongoose.connect(process.env.MONGOCLIENT_CONNECT, { 
+    dbName: 'aion',
+    useNewUrlParser: true, 
+    useUnifiedTopology: true
+})
+
 const facebookSchema = new Schema({
     id: String,
     postid: String,
@@ -19,6 +25,6 @@ const facebookSchema = new Schema({
     timestamp_transaction: { type: Date, default: Date.now }
 },{strict:false})  
 
-const rawFacebookModel = mongoose.model('facebook',facebookSchema)
+const rawFacebookModel = db.model('facebook',facebookSchema)
 
 module.exports = rawFacebookModel

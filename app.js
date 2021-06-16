@@ -6,7 +6,6 @@ const celery = require('celery-node');
 const TargetList = require('./models/targetlist')
 const rawFacebook = require('./models/rawfacebook')
 const selectors = require('./selectors');
-const moment = require('moment');
 
 
 mongoose.connect(process.env.MONGOCLIENT_CONNECT, { 
