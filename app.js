@@ -66,7 +66,7 @@ const task = client.createTask("tasks.preprocess_facebook");
 
     // Login
     await page.goto('https://www.facebook.com');
-    await page.screenshot({path: '/screenshot/fb.png'});
+    await page.screenshot({path: './screenshot/fb.png'});
     await page.waitForFunction('document.querySelector("body")');
     await page.waitForSelector(selectors.email_input);
     await page.type(selectors.email_input, process.env.FB_EMAIL);
@@ -81,7 +81,7 @@ const task = client.createTask("tasks.preprocess_facebook");
     for(var target of targets){
         console.log(`Start scrape : ${target}\n`);
         await page.goto(`https://m.facebook.com/${target}/posts/`);
-        await page.screenshot({path: `/screenshot/${target}.png`});
+        await page.screenshot({path: `./screenshot/${target}.png`});
         await page.waitForFunction('document.querySelector("body")');
         await page.waitFor(3000)
         
