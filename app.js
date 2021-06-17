@@ -46,7 +46,7 @@ const task = client.createTask("tasks.preprocess_facebook");
       }else{
         docs.Array
         targets.push(docs.uid)
-        console.log(`Target: ${docs}`);
+        console.log(`Target: ${typeof(docs)}`);
       }
     })
 
