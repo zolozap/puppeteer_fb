@@ -39,12 +39,12 @@ const task = client.createTask("tasks.preprocess_facebook");
         console.log(`Target count ${count}`)
       }
     })
-    let targetss = []
+    let targets = []
     await TargetList.find({source: 'facebook'}, function (err, docs) {
       if(err){
         console.log(error.message);
       }else{
-        targetss.push(docs.uid)
+        targets.push(docs.uid)
         // console.log(`Target: ${docs}`);
       }
     })
@@ -76,7 +76,7 @@ const task = client.createTask("tasks.preprocess_facebook");
     console.log('Sign in to facebook.\n');
 
     // Loop scrape post in target list
-    var targets = ['superLungtoo','MoveForwardPartyThailand']
+    // var targets = ['superLungtoo','MoveForwardPartyThailand']
     
     for(var target of targets){
         console.log(`Start scrape : ${target}\n`);
